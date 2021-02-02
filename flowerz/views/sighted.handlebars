@@ -1,0 +1,40 @@
+<div style="text-align: center;">
+    <div id="info" >
+        <h3>{{flower.name}} — {{flower.gen}} {{flower.spec}}</h3>
+        <br />
+        <img src={{image}} style="width: 25%; border-radius: 10px;">
+    </div>
+</div>
+
+<div style="text-align: center;">
+    <div id="info">
+        <h3>10 most recent sightings:</h3>
+        <ul>
+            {{#each names}} 
+                <li> {{this.date}}, at {{this.loc}} by <a href="/person/{{this.person}}">{{this.person}}</a></li>
+            {{/each}}
+        </ul>
+        {{!-- <a id="delete" href="/delete/{{flower.name}}">DELETE this flower</a> --}}
+        <form action="/delete/{{flower.name}}">
+            <button type="submit">DELETE this flower</button>
+        </form>
+    </div>
+</div>
+
+<div style="text-align: center">
+    <div id="info" >
+        <button id="updateBtn"> Update Flower </button>
+        <div id="updateDiv" style="display: none">
+            <h3>Change flower info:</h3>
+            <form action="/{{flower.name}}/update" method="POST">
+                <p> Common Name: &nbsp; <input type="text" placeholder="Enter new comname" name="common" value="{{flower.name}}"></p>
+                <p> Genus: &nbsp; <input type="text" placeholder="Enter new genus" name="genus" value="{{flower.gen}}"></p>
+                <p> Species: &nbsp; <input type="text" placeholder="Enter new species" name="species" value="{{flower.spec}}"></p>
+                <br/>
+                <button type="submit">Update</button>
+                <br /> <br/ >
+                <button id="cancelUpdate">Cancel</button>
+            </form>
+        </div> 
+    </div>
+</div>

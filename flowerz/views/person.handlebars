@@ -1,0 +1,10 @@
+<div style="text-align: center;">
+    <div id="info">
+        <h3>{{person_name}}'s sightings:</h3>
+        <ul>
+            {{#each names}} 
+                <li><p><a href="/sighted/{{this.flower}}">{{this.flower}}</a>: {{this.date}} at {{this.loc}}</p></li>
+            {{/each}}
+        </ul>
+    </div>
+</div>
